@@ -78,7 +78,6 @@ const RegisterForm: React.FC = () => {
             </a>
           </label>
         </div>
-
         <div className="form-control mt-6">
           <button type="submit" className="btn btn-primary">
             Register
