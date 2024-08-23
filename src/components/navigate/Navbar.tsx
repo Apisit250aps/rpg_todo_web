@@ -1,16 +1,19 @@
-import Modal, { openModal } from "../modal/Modal"
-import CreateCharacterForm from "../forms/character/CreateCharacterForm"
-
+import CharacterCreateModal from "../forms/character/CharacterCreateModal"
+import { handleOpenModal } from "../modal"
 function Navbar() {
   return (
     <>
-      <div className="navbar bg-base-100 rounded-2xl">
+      <div className="navbar bg-base-100 rounded-2xl w-full">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl">To Do</a>
         </div>
         <div className="flex-none">
-          <button type="button" onClick={() => openModal("characterForm")} className="btn btn-ghost">
-          <i className='bx bx-message-square-add'></i>
+          <button
+            type="button"
+            onClick={() => handleOpenModal("create_character_form_modal")}
+            className="btn btn-ghost"
+          >
+            <i className="bx bx-message-square-add"></i>
           </button>
           <div className="dropdown dropdown-end">
             <div
@@ -45,9 +48,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <Modal id="characterForm" title="Create new character!">
-        <CreateCharacterForm />
-      </Modal>
+      <CharacterCreateModal />
     </>
   )
 }
