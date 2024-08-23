@@ -4,13 +4,13 @@ import CreateCharacterForm from "../forms/character/CreateCharacterForm"
 function Navbar() {
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 rounded-2xl">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl">To Do</a>
         </div>
         <div className="flex-none">
-          <button type="button" onClick={() => openModal("characterForm")} className="btn btn-primary btn-sm">
-            New character!
+          <button type="button" onClick={() => openModal("characterForm")} className="btn btn-ghost">
+          <i className='bx bx-message-square-add'></i>
           </button>
           <div className="dropdown dropdown-end">
             <div
