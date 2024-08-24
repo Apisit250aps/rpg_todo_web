@@ -4,10 +4,13 @@ import WorkCard from "./WorkCard"
 import apiClient from "../../../configs/axios"
 
 interface Work {
+  start_date: string;
+  due_date: string;
   id: string
   name: string
   description: string
   tasks: any[]
+  status: string
 }
 
 const WorkRender: React.FC<{ refreshTrigger: any }> = ({ refreshTrigger }) => {
@@ -37,7 +40,14 @@ const WorkRender: React.FC<{ refreshTrigger: any }> = ({ refreshTrigger }) => {
     <>
       {error && <div className="error-message">{error}</div>}
       {works.map((work, index) => (
-        <WorkCard key={index} name={work.name} task={work.tasks} />
+        <WorkCard
+          key={index}
+          name={work.name}
+          task={work.tasks}
+          status={work.status}
+          start={work.start_date}
+          due={work.due_date}
+        />
       ))}
     </>
   )
