@@ -6,6 +6,8 @@ interface WorkStatProp {
 }
 
 const WorkStat: FC<WorkStatProp> = ({ name, desc }) => {
+  let value: object = { "--value": 10, value: 10 }
+
   return (
     <>
       <div className="stats w-full shadow mt-3">
@@ -17,10 +19,10 @@ const WorkStat: FC<WorkStatProp> = ({ name, desc }) => {
         <div className="stat">
           <div
             className="radial-progress bg-primary text-primary-content border-primary border-4"
-            style={{ "--value": 70 }}
+            style={value}
             role="progressbar"
           >
-            70%
+            10
           </div>
         </div>
       </div>

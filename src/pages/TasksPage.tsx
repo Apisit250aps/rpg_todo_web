@@ -5,7 +5,9 @@ import apiClient from "../configs/axios"
 import { useParams } from "react-router-dom"
 import WorkStat from "../components/base/work/WorkStat"
 import TasksRender from "../components/base/task/TasksRender"
-
+import Modal from "../components/modal/Modal"
+import TaskForm from "../components/forms/task/TaskForm"
+TaskForm
 const TasksPage: FC = () => {
   const [character, setCharacter] = useState<{ name: string }>({
     name: ""
@@ -43,7 +45,11 @@ const TasksPage: FC = () => {
   return (
     <>
       <HeroAuth>
-        <Navbar modalId={""} title={character.name}></Navbar>
+        <Navbar modalId={"task_form"} title={character.name}>
+          <Modal id={"task_form"} title={"New task"}>
+            <TaskForm />
+          </Modal>
+        </Navbar>
         <WorkStat name={work.name} />
         <table className="table bg-white mt-3 rounded-2xl">
           <TasksRender tasks={work.tasks} />
