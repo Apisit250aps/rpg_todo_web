@@ -2,7 +2,7 @@ import { FC, ReactNode, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import apiClient from "../../configs/axios"
 
-const HeroAuth: FC<{ children: ReactNode }> = ({ children }) => {
+const HeroAuth: FC<{ children?: ReactNode }> = ({ children }) => {
   const navigate = useNavigate()
   const [isReady, setIsReady] = useState(false)
 

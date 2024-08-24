@@ -1,15 +1,16 @@
 import { FC, ReactNode } from "react"
 
 import { handleOpenModal } from "../modal"
-const Navbar: FC<{ modalId: string; children: ReactNode }> = ({
-  modalId,
-  children
-}) => {
+const Navbar: FC<{
+  modalId?: string
+  children?: ReactNode
+  title?: string
+}> = ({ modalId = "", children = undefined, title = "" }) => {
   return (
     <>
       <div className="navbar bg-base-100 rounded-2xl w-full">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">To Do</a>
+          <a className="btn btn-ghost text-xl">{title}</a>
         </div>
         <div className="flex-none">
           <button

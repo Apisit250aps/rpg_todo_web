@@ -4,6 +4,7 @@ import RegisterPage from "../pages/auth/RegisterPage"
 import HomePage from "../pages/HomePage"
 import Logout from "../pages/auth/Logout"
 import CreateWorkPage from "../pages/CreateWorkPage"
+import TasksPage from "../pages/TasksPage"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/:characterId",
     element: <CreateWorkPage />
+  },
+  {
+    path: "/:characterId/:workId",
+    element: <TasksPage />
   }
 ])
 

@@ -4,9 +4,9 @@ import WorkCard from "./WorkCard"
 import apiClient from "../../../configs/axios"
 
 interface Work {
-  start_date: string;
-  due_date: string;
-  id: string
+  start_date: string
+  due_date: string
+  _id: string
   name: string
   description: string
   tasks: any[]
@@ -47,6 +47,7 @@ const WorkRender: React.FC<{ refreshTrigger: any }> = ({ refreshTrigger }) => {
           status={work.status}
           start={work.start_date}
           due={work.due_date}
+          id={work._id}
         />
       ))}
     </>

@@ -1,4 +1,5 @@
 import { FC, useState } from "react"
+import { useParams } from "react-router-dom"
 
 interface WorkCardProp {
   id?: string
@@ -36,14 +37,18 @@ const TaskList: FC<{
 }
 
 const WorkCard: FC<WorkCardProp> = ({ id, name, start, due, status, task }) => {
+  const { characterId } = useParams()
   const [showContent, setShow] = useState<boolean>(false)
+
   return (
     <>
       <div id={id} className="card w-full bg-white mt-3">
         <div className="card-body p-3">
           <h2 className="card-title flex flex-col">
             <div className="flex flex-row justify-between w-full">
-              <h3>{name}</h3>
+              <a href={`/${characterId}/${id}`}>
+                <small className="">{name}</small>
+              </a>
               <div className="">
                 <div className="badge badge-neutral text-white">{status}</div>
                 <button
@@ -62,6 +67,11 @@ const WorkCard: FC<WorkCardProp> = ({ id, name, start, due, status, task }) => {
               )}
               {due ? <div className="badge badge-primary">{due}</div> : <></>}
             </div>
+            <progress
+              className="progress progress-error w-full"
+              value="100"
+              max="100"
+            ></progress>
           </h2>
           <div className="collapse bg-base-200">
             <input

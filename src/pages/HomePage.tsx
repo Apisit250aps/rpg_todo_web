@@ -8,7 +8,7 @@ function HomePage() {
   return (
     <>
       <HeroAuth>
-        <Navbar modalId={"create_character_form_modal"}>
+        <Navbar modalId={"create_character_form_modal"} title={"Todo"}>
           <CharacterCreateModal onDataAdd={setOnAddCharacter} />
         </Navbar>
         <CharacterRender refreshTrigger={onAddCharacter} />
