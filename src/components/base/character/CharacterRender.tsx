@@ -37,7 +37,7 @@ const CharacterRow: FC<CharacterRowProp> = ({ name, className, id }) => {
   )
 }
 
-const CharacterRender = () => {
+const CharacterRender: FC = () => {
   const [characters, setCharacterData] = useState<any[]>([]) // Initialize with an empty array
 
   const fetchData = async () => {
@@ -53,8 +53,7 @@ const CharacterRender = () => {
 
   useEffect(() => {
     fetchData()
-  }, []) // Empty dependency array ensures it only runs on mount
-
+  }, [])
   return (
     <>
       <div className="overflow-x-auto mt-3 w-full">

@@ -25,6 +25,7 @@ const CharacterCreateModal: FC = () => {
             text: "Character created!",
             icon: "success"
           })
+          location.reload()
         }
       })
     }
