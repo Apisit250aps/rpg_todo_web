@@ -1,5 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import RegisterForm from "../../components/forms/auth/RegisterForm"
+import { useEffect } from "react";
 function RegisterPage() {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    // ตรวจสอบว่ามี authToken หรือไม่
+    const authToken = localStorage.getItem("authToken")
+    if (authToken) {
+      // ถ้ามี authToken เปลี่ยนเส้นทางไปยังหน้า index
+      navigate("/")
+    }
+  }, [navigate])
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
