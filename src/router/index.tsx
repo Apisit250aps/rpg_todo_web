@@ -3,6 +3,7 @@ import LoginPage from "../pages/auth/LoginPage"
 import RegisterPage from "../pages/auth/RegisterPage"
 import HomePage from "../pages/HomePage"
 import Logout from "../pages/auth/Logout"
+import CreateWorkPage from "../pages/CreateWorkPage"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/logout",
     element: <Logout />
+  },
+  {
+    path: "/:characterId",
+    element: <CreateWorkPage />
   }
 ])
 

@@ -1,9 +1,11 @@
 import React, { FC, useState } from "react"
 import apiClient from "../../../configs/axios"
 import { handleCloseModal } from "../../modal"
-import Swal from "sweetalert2";
+import Swal from "sweetalert2"
 
-const CharacterCreateModal: FC = () => {
+const CharacterCreateModal: FC<{ onDataAdd: (data: any) => void }> = ({
+  onDataAdd
+}) => {
   const [name, setName] = useState<string>("")
   const [className, setClassName] = useState<string>("")
 
@@ -25,7 +27,7 @@ const CharacterCreateModal: FC = () => {
             text: "Character created!",
             icon: "success"
           })
-          location.reload()
+          onDataAdd(response.status)
         }
       })
     }

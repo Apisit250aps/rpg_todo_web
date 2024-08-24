@@ -37,14 +37,14 @@ const CharacterRow: FC<CharacterRowProp> = ({ name, className, id }) => {
   )
 }
 
-const CharacterRender: FC = () => {
-  const [characters, setCharacterData] = useState<any[]>([]) // Initialize with an empty array
+const CharacterRender: FC<{ refreshTrigger: any }> = ({ refreshTrigger }) => {
+  const [characters, setCharacterData] = useState<any[]>([])
 
   const fetchData = async () => {
     try {
       const response = await apiClient.get("/user/data")
       if (response.status === 200) {
-        setCharacterData(response.data[0].characters || []) // Ensure there's a fallback if character is undefined
+        setCharacterData(response.data[0].characters || [])
       }
     } catch (error) {
       console.error("Failed to fetch character data:", error)
@@ -53,7 +53,7 @@ const CharacterRender: FC = () => {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [refreshTrigger]) // Trigger fetchData when refreshTrigger changes
   return (
     <>
       <div className="overflow-x-auto mt-3 w-full">

@@ -1,6 +1,10 @@
-import CharacterCreateModal from "../forms/character/CharacterCreateModal"
+import { FC, ReactNode } from "react"
+
 import { handleOpenModal } from "../modal"
-function Navbar() {
+const Navbar: FC<{ modalId: string; children: ReactNode }> = ({
+  modalId,
+  children
+}) => {
   return (
     <>
       <div className="navbar bg-base-100 rounded-2xl w-full">
@@ -10,7 +14,7 @@ function Navbar() {
         <div className="flex-none">
           <button
             type="button"
-            onClick={() => handleOpenModal("create_character_form_modal")}
+            onClick={() => handleOpenModal(modalId)}
             className="btn btn-ghost"
           >
             <i className="bx bx-message-square-add"></i>
@@ -48,7 +52,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <CharacterCreateModal />
+      {children}
     </>
   )
 }
