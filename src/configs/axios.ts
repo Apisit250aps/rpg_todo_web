@@ -1,8 +1,7 @@
-// axiosConfig.ts
 import axios from "axios"
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:3000", // แทนที่ด้วย base URL ของคุณ
+  baseURL: "http://localhost:3000",
   headers: {
     "Content-Type": "application/json",
     Authorization: ""
@@ -16,5 +15,20 @@ apiClient.interceptors.request.use((config) => {
   }
   return config
 })
+
+apiClient.interceptors.response.use(
+  (response) => {
+    return response
+  },
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      localStorage.removeItem("authToken")
+
+      window.location.href = "/login"
+    }
+
+    return Promise.reject(error)
+  }
+)
 
 export default apiClient
