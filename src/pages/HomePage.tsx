@@ -2,7 +2,7 @@ import Navbar from "../components/navigate/Navbar"
 import HeroAuth from "../components/layouts/Hero"
 import CharacterRender from "../components/base/character/CharacterRender"
 import CharacterCreateModal from "../components/forms/character/CharacterCreateModal"
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 function HomePage() {
   const [onAddCharacter, setOnAddCharacter] = useState<any>()
   return (

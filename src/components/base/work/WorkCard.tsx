@@ -24,7 +24,7 @@ const TaskList: FC<{
             <input type="checkbox" className="checkbox" />
           </label>
         </th>
-        <td>{name}</td>
+        <td id={id}>{name}</td>
         <td>{status}</td>
         <td>{difficulty}</td>
         <th>
