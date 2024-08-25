@@ -103,9 +103,7 @@ const TasksPage: FC = () => {
           </Modal>
         </Navbar>
         <WorkStat name={work.name} />
-        <table className="table bg-white mt-3 rounded-2xl">
-          <TasksRender />
-        </table>
+        <TasksRender />
       </HeroAuth>
     </>
   )
