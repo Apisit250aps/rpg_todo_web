@@ -11,7 +11,7 @@ const TasksRender: FC<{ tasks: Task[] }> = ({ tasks }) => {
   return (
     <>
       {tasks.map((task, index) => (
-        <tr key={index} id={task.id} className="">
+        <tr key={index} id={task.id} className=" hover">
           <th>
             <label>
               <input type="checkbox" className="checkbox" />
