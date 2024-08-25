@@ -11,7 +11,7 @@ const HeroAuth: FC<{ children?: ReactNode }> = ({ children }) => {
       try {
         const response = await apiClient.get("/auth/check")
         if (response.status === 200) {
-          console.log(response.status)
+        
           setIsReady(true)
         }
       } catch {
@@ -21,7 +21,7 @@ const HeroAuth: FC<{ children?: ReactNode }> = ({ children }) => {
 
     checkAuth()
   }, [navigate])
-  console.log(isReady)
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content min-w-96">

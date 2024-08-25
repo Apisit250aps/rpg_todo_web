@@ -22,13 +22,13 @@ const WorkRender: React.FC<{ refreshTrigger: any }> = ({ refreshTrigger }) => {
     try {
       const response = await apiClient.get(`/work/all/${characterId}`)
       if (response.status === 200) {
-        console.log(response.data)
+        
         setWorks(response.data ?? []) // Handle possible null or undefined
         setError(null) // Clear any previous errors
       }
     } catch (error) {
       setError("Failed to fetch works. Please try again later.")
-      console.error("Failed to fetch works:", error)
+
     }
   }, [characterId])
 

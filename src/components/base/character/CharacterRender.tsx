@@ -47,7 +47,7 @@ const CharacterRender: FC<{ refreshTrigger: any }> = ({ refreshTrigger }) => {
         setCharacterData(response.data[0].characters || [])
       }
     } catch (error) {
-      console.error("Failed to fetch character data:", error)
+   
     }
   }
 

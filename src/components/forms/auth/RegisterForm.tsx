@@ -5,6 +5,7 @@ const RegisterForm: React.FC = () => {
   // State for form fields
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("")
 
   // Handler for form submission
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -15,7 +16,8 @@ const RegisterForm: React.FC = () => {
       url: "/auth/register",
       data: {
         username,
-        password
+        password,
+        email
       }
     })
       .then((response) => {
@@ -47,6 +49,19 @@ const RegisterForm: React.FC = () => {
   return (
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
       <form className="card-body" onSubmit={handleSubmit}>
+      <div className="form-control">
+          <label className="label">
+            <span className="label-text">email</span>
+          </label>
+          <input
+            type="email"
+            placeholder="email"
+            className="input input-bordered"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">username</span>
